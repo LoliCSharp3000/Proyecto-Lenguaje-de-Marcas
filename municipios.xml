@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <item>
+        <Municipio>Alameda</Municipio>
+        <Tratamiento>D.</Tratamiento>
+        <Nombre_y_apellidos>José García Orejuela</Nombre_y_apellidos>
+        <Cargo>Alcalde Presidente</Cargo>
+        <Entidad>Ayuntamiento de Alameda</Entidad>
+        <Provincia>Málaga</Provincia>
+        <Dirección>Plaza de España, 26</Dirección>
+        <Código_postal>29530</Código_postal>
+        <Código_INE>29001</Código_INE>
+    </item>
+
+    <item>
+        <Municipio>Alhaurin</Municipio>
+        <Tratamiento>D.</Tratamiento>
+        <Nombre_y_apellidos>Agustín González Martín</Nombre_y_apellidos>
+        <Cargo>Alcaldesa Presidenta</Cargo>
+        <Entidad>Ayuntamiento de Alhaurín</Entidad>
+        <Provincia>Málaga</Provincia>
+        <Dirección>Plaza de la Constitución, 26</Dirección>
+        <Código_postal>29120</Código_postal>
+        <Código_INE>29002</Código_INE>
+    </item>
+
+    <item>
+        <Municipio>Alfarnate</Municipio>
+        <Tratamiento>D.</Tratamiento>
+        <Nombre_y_apellidos>Juan Jesús Gallardo Khmarti</Nombre_y_apellidos>
+        <Cargo>Alcalde Presidente</Cargo>
+        <Entidad>Ayuntamiento de Alfarnate</Entidad>
+        <Provincia>Málaga</Provincia>
+        <Dirección>Plaza de la Constitución, 1</Dirección>
+        <Código_postal>29194</Código_postal>
+        <Código_INE>29003</Código_INE>
+    </item>
+
+    <item>
+        <Municipio>Alfarnatejo</Municipio>
+        <Tratamiento>D.</Tratamiento>
+        <Nombre_y_apellidos>Daniel Benítez Zamora</Nombre_y_apellidos>
+        <Cargo>Alcalde Presidente</Cargo>
+        <Entidad>Ayuntamiento de Alfarnatejo</Entidad>
+        <Provincia>Málaga</Provincia>
+        <Dirección>C/ Pósito, 2</Dirección>
+        <Código_postal>29194</Código_postal>
+        <Código_INE>29004</Código_INE>
+    </item>
+</root>
