@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="inicio">
 
     <header class="cabecera">
         <div class="identidad-provincia">
@@ -28,6 +28,10 @@
                 </ul>
             </details>
         </nav>
+
+        <a class="volver-arriba" href="#inicio" aria-label="Volver arriba">
+            <span class="volver-texto">Volver arriba</span>
+        </a>
     </header>
 
     <main class="contenedor">
@@ -140,6 +144,15 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Cierra el desplegable al elegir un municipio para que no tape su tarjeta
+        document.querySelectorAll(".selector-municipio a").forEach(function (enlace) {
+            enlace.addEventListener("click", function () {
+                enlace.closest("details").removeAttribute("open");
+            });
+        });
+    </script>
 
 </body>
 </html>

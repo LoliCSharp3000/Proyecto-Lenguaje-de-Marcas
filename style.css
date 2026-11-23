@@ -10,11 +10,14 @@ body {
 }
 
 .cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px) auto;
     align-items: center;
-    gap: 30px;
-    padding: 18px max(24px, calc((100% - 1100px) / 2));
+    gap: 20px;
+    padding: 10px max(24px, calc((100% - 1100px) / 2));
     background: #174c3a;
     border-bottom: 5px solid #d5b45b;
 }
@@ -28,8 +31,8 @@ body {
 
 .logo-provincia {
     display: block;
-    width: 62px;
-    height: 74px;
+    width: 48px;
+    height: 58px;
     flex: 0 0 auto;
     object-fit: contain;
 }
@@ -37,7 +40,7 @@ body {
 .cabecera h1 {
     margin: 0;
     color: #ffffff;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 600;
     line-height: 1.2;
 }
@@ -129,6 +132,41 @@ body {
     outline: none;
 }
 
+/* Botón de volver arriba */
+.volver-arriba {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 16px;
+    color: #174c3a;
+    background: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 4px;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.volver-arriba::before {
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid currentColor;
+    border-left: 2px solid currentColor;
+    content: "";
+    transform: translateY(2px) rotate(45deg);
+}
+
+.volver-arriba:hover {
+    background: #f5f0e2;
+}
+
+.volver-arriba:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px #d5b45b;
+}
+
 /* Contenedor general */
 .contenedor {
     max-width: 1100px;
@@ -149,31 +187,34 @@ body {
     margin-bottom: 18px;
 }
 
-/* Cada municipio */
+/* Cada municipio (tarjeta) */
+html {
+    scroll-behavior: smooth;
+}
+
 .fila {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     overflow: hidden;
     background: #ffffff;
-    border: 1px solid #d6ded6;
-    border-radius: 8px;
-    box-shadow: 0 3px 12px rgba(25, 55, 39, 0.1);
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    border: 1px solid #e3e8e3;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(25, 55, 39, 0.06);
+    scroll-margin-top: 105px;
 }
 
 .fila + .fila {
-    margin-top: 18px;
+    margin-top: 22px;
 }
 
 /* Columna de datos y fotografía */
 .datos {
     display: grid;
     grid-template-columns: 185px 1fr;
-    gap: 22px;
+    gap: 24px;
     align-items: center;
-    padding: 24px;
-    border-right: 1px solid #d6ded6;
-    background: #ffffff;
+    padding: 26px;
+    border-right: 1px solid #edf0ed;
 }
 
 /* Fotografía */
@@ -181,8 +222,7 @@ body {
     width: 170px;
     height: 195px;
     overflow: hidden;
-    border: 1px solid #d6ded6;
-    border-radius: 5px;
+    border-radius: 8px;
     background: #f0f3f0;
 }
 
@@ -195,40 +235,45 @@ body {
 
 /* Nombre del municipio */
 .datos-texto h2 {
-    margin: 0 0 18px;
-    color: #006633;
-    font-size: 20px;
+    margin: 0 0 14px;
+    color: #174c3a;
+    font-size: 21px;
     font-weight: bold;
     line-height: 1.3;
+}
+
+.datos-texto h2::after {
+    display: block;
+    width: 32px;
+    height: 3px;
+    margin-top: 10px;
+    border-radius: 2px;
+    background: #d5b45b;
+    content: "";
 }
 
 /* Textos */
 .datos-texto p,
 .informacion p {
     margin: 0;
-    padding: 9px 0;
+    padding: 5px 0;
+    color: #4a554a;
     font-size: 14px;
     line-height: 1.6;
     overflow-wrap: anywhere;
 }
 
-.datos-texto p + p,
-.informacion p + p {
-    border-top: 1px solid #e4e9e4;
-}
-
 /* Columna de información */
 .informacion {
-    padding: 24px 28px;
-    background: #f8faf7;
+    padding: 26px 30px;
 }
 
 .informacion h2 {
-    margin: 0 0 16px;
-    color: #006633;
-    font-size: 19px;
-    border-bottom: 2px solid #d5b45b;
-    padding-bottom: 12px;
+    margin: 0 0 12px;
+    padding-bottom: 10px;
+    color: #174c3a;
+    font-size: 17px;
+    border-bottom: 1px solid #edf0ed;
 }
 
 /* Etiquetas de los campos */
@@ -237,15 +282,31 @@ body {
     font-weight: bold;
 }
 
-/* Efecto discreto al pasar el ratón */
-.fila:hover {
-    box-shadow: 0 8px 20px rgba(25, 55, 39, 0.16);
-    transform: translateY(-2px);
+/* Al elegir un municipio en el menú, su tarjeta se marca y se aclara un momento */
+.fila:target {
+    border-color: #d5b45b;
+    box-shadow: 0 6px 18px rgba(25, 55, 39, 0.12);
+    animation: resaltar 1.6s ease-out;
 }
 
-.fila:hover .datos,
-.fila:hover .informacion {
-    background: #f5f9f4;
+@keyframes resaltar {
+    from {
+        background: #fbf6e6;
+    }
+
+    to {
+        background: #ffffff;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .fila:target {
+        animation: none;
+    }
 }
 
 .pie-pagina {
@@ -292,23 +353,24 @@ body {
 /* Adaptación a móviles */
 @media (max-width: 700px) {
     .cabecera {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 18px 16px 20px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 10px 16px 12px;
     }
 
     .identidad-provincia {
+        grid-column: 1 / -1;
         justify-content: center;
-        gap: 14px;
+        gap: 12px;
     }
 
     .logo-provincia {
-        width: 50px;
-        height: 60px;
+        width: 40px;
+        height: 48px;
     }
 
     .cabecera h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .contenedor {
@@ -317,6 +379,7 @@ body {
 
     .fila {
         grid-template-columns: 1fr;
+        scroll-margin-top: 150px;
     }
 
     .datos {
@@ -334,10 +397,6 @@ body {
     .informacion {
         padding: 18px 20px;
         border-top: 1px solid #d6ded6;
-    }
-
-    .fila:hover {
-        transform: none;
     }
 
     .pie-pagina {
@@ -359,8 +418,8 @@ body {
 
 @media (max-width: 480px) {
     .cabecera {
-        gap: 16px;
-        padding: 16px 12px 18px;
+        gap: 8px;
+        padding: 8px 12px 10px;
     }
 
     .identidad-provincia {
@@ -369,12 +428,21 @@ body {
     }
 
     .logo-provincia {
-        width: 44px;
-        height: 54px;
+        width: 36px;
+        height: 44px;
     }
 
     .cabecera h1 {
-        font-size: 22px;
+        font-size: 18px;
+    }
+
+    .volver-texto {
+        display: none;
+    }
+
+    .volver-arriba {
+        width: 48px;
+        padding: 0;
     }
 
     .contenedor {
