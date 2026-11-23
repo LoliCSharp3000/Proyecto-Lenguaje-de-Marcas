@@ -11,25 +11,30 @@
 
 <body>
 
-    <h1>Municipios de Málaga</h1>
+    <header class="cabecera">
+        <div class="identidad-provincia">
+            <img class="logo-provincia" src="imagenes/escudo-malaga.svg" alt="Escudo de la provincia de Málaga">
+            <h1>Municipios de Málaga</h1>
+        </div>
 
-    <nav class="menu-provincia" aria-label="Menú de municipios">
-        <details class="selector-municipio">
-            <summary>Seleccionar municipio</summary>
-            <ul>
-                <li><a href="#alameda">Alameda</a></li>
-                <li><a href="#alhaurin">Alhaurín de la Torre</a></li>
-                <li><a href="#alfarnate">Alfarnate</a></li>
-                <li><a href="#alfarnatejo">Alfarnatejo</a></li>
-            </ul>
-        </details>
-    </nav>
+        <nav class="menu-provincia" aria-label="Menú de municipios">
+            <details class="selector-municipio">
+                <summary aria-controls="lista-municipios">Seleccionar municipio</summary>
+                <ul id="lista-municipios">
+                    <li><a href="#alameda">Alameda</a></li>
+                    <li><a href="#alhaurin">Alhaurín de la Torre</a></li>
+                    <li><a href="#alfarnate">Alfarnate</a></li>
+                    <li><a href="#alfarnatejo">Alfarnatejo</a></li>
+                </ul>
+            </details>
+        </nav>
+    </header>
 
     <main class="contenedor">
 
-        <header class="encabezado">
+        <h2 class="encabezado">
             INFORMACIÓN MUNICIPAL
-        </header>
+        </h2>
 
         <!-- ALAMEDA -->
         <section class="fila" id="alameda">
@@ -124,6 +129,17 @@
         </section>
 
     </main>
+
+    <footer class="pie-pagina">
+        <div class="pie-contenido">
+            <p class="pie-proyecto">Municipios de Málaga</p>
+            <div class="pie-detalles">
+                <p><strong>Integrantes:</strong> Maksim Korol Fomenko, Manuel Cuevas y Samuel Anaya</p>
+                <p><strong>Curso:</strong> 1 DAM</p>
+                <p><strong>Asignatura:</strong> Lenguaje de Marcas</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
