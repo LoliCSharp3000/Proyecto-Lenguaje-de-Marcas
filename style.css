@@ -224,6 +224,8 @@ html {
     overflow: hidden;
     border-radius: 8px;
     background: #f0f3f0;
+    object-fit: cover;
+    object-position: top;
 }
 
 .foto img {
@@ -231,6 +233,8 @@ html {
     height: 100%;
     object-fit: cover;
     display: block;
+     object-fit: cover;
+    object-position: top;
 }
 
 /* Nombre del municipio */
